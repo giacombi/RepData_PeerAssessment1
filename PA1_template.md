@@ -71,7 +71,7 @@ act <- activity[activ.complete,]
 
 ```r
 #plot the total number of steps each days for the two months
-ggplot(aes(day, steps, fill = month), data=act) + geom_histogram(stat = "identity") + facet_wrap(~month) + ggtitle(label = "Number of total daily steps") + scale_fill_discrete(breaks = c("10", "11"), labels = c("October", "November"), guide = guide_legend(title = "Month"))
+ggplot(aes(day, steps), data=act) + geom_histogram(stat = "identity") + facet_wrap(~month) + ggtitle(label = "Number of total daily steps") + scale_fill_discrete(breaks = c("10", "11"), labels = c("October", "November"), guide = guide_legend(title = "Month"))
 ```
 
 ![](PA1_template_files/figure-html/number of steps each day for the two months-1.png) 
