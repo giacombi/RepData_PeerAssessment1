@@ -42,7 +42,7 @@ act <- activity[activ.complete,]
 ###Make an histogram of the total number of steps taken each day
 ```{r number of steps each day for the two months, echo = TRUE}
 #plot the total number of steps each days for the two months
-ggplot(aes(day, steps, colour = month), data=act) + geom_histogram(stat = "identity") + facet_wrap(~month) + ggtitle(label = "Number of total daily steps")
+ggplot(aes(day, steps, fill = month), data=act) + geom_histogram(stat = "identity") + facet_wrap(~month) + ggtitle(label = "Number of total daily steps") + scale_fill_discrete(breaks = c("10", "11"), labels = c("October", "November"), guide = guide_legend(title = "Month"))
 ```
 
 ###Calculate and report the mean and median total number of steps taken per day
@@ -59,7 +59,7 @@ The mean of total number of steps each day is `r daily.mean.steps` and the media
 
 ###Make a time series plot (i.e. type = "1") of the 5-minute interval (x-axis) and the average number of steps taken, averaged across all days (y-axis)
 ```{r Average activity pattern, warning=F, echo=TRUE, fig.align='center', fig.height=25, cache = T}
-ggplot(aes(interval, steps), data = act) + geom_bar(stat = "identity") + facet_grid(day~month) 
+ggplot(aes(interval, steps, fill = month), data = act) + geom_bar(stat = "identity") + facet_grid(day~month)+ ggtitle(label = "Average Activity Pattern") + labs(x = "Interval", y = "Steps") + scale_fill_discrete(breaks = c("10", "11"), labels = c("October","November"), guide = guide_legend(title = "Month"))
 ```
 
 ###Which 5-minute interval, on average across all the days in the dataset, contains the maximum number of steps?
@@ -121,7 +121,7 @@ table(is.na(act.new))
 
 ```{r Sum of steps after NAs replacement, echo = TRUE}
 #plot the total number of steps each days for the two months
-ggplot(aes(day, steps), data=act.new) + geom_histogram(stat = "identity") + facet_grid(~month, labeller = ) + ggtitle(label = "Number of total daily steps") + labs(x="Month Day", y = "Steps")
+ggplot(aes(day, steps, fill = month), data=act.new) + geom_histogram(stat = "identity") + facet_grid(~month, labeller = ) + ggtitle(label = "Total daily steps") + labs(x="Month Day", y = "Steps") + scale_fill_discrete(breaks = c("10", "11"), labels = c("October","November"), guide = guide_legend(title = "Month"))
 ```
 
 ```{r mean and median steps, echo = TRUE}
