@@ -42,7 +42,7 @@ act <- activity[activ.complete,]
 ###Make an histogram of the total number of steps taken each day
 ```{r number of steps each day for the two months, echo = TRUE}
 #plot the total number of steps each days for the two months
-ggplot(aes(day, steps), data=act) + geom_histogram(stat = "identity") + facet_wrap(~month) + ggtitle(label = "Number of total daily steps") + scale_fill_discrete(breaks = c("10", "11"), labels = c("October", "November"), guide = guide_legend(title = "Month"))
+ggplot(aes(day, steps, fill = month), data=act) + geom_histogram(stat = "identity") + facet_wrap(~month) + ggtitle(label = "Number of total daily steps") + scale_fill_discrete(breaks = c("10", "11"), labels = c("October", "November"), guide = guide_legend(title = "Month"))
 ```
 
 ###Calculate and report the mean and median total number of steps taken per day
